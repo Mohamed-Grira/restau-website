@@ -1,0 +1,29 @@
+<h2>{{titre}}</h2>
+
+<form id="form-auth">
+    <label>
+        Courriel:
+        <input type="text" id="input-courriel">
+    </label>
+
+    {{#if isInscription}}
+        <label>
+            Prenom:
+            <input type="text" id="input-prenom">
+        </label>
+
+        <label>
+            Nom:
+            <input type="text" id="input-nom">
+        </label>
+    {{/if}}
+    
+    <label>
+        Mot de passe:
+        <input type="password" id="input-mot-de-passe">
+    </label>
+    
+    <input type="submit" value="{{bouton}}">
+
+    <div id="form-erreur" class="erreur"></div>
+</form>

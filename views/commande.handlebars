@@ -1,0 +1,39 @@
+<section>
+    <h2>Commandes</h2>
+
+    <ul class="commande">
+        {{#each commande}}
+            <li data-id-commande="{{this.id_commande}}">
+                <div class="info">
+                    <div class="id">{{this.id_commande}}</div>
+                    <div class="date">{{this.date}}</div>
+                    <select>
+                        {{#each ../etatCommande}}
+                            <option value="{{this.id_etat_commande}}" {{#if (equals ../this.id_etat_commande this.id_etat_commande)}}selected{{/if}}>{{this.nom}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <table class="produit">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="nom">Produit</th>
+                            <th class="quantite">Quantité</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each this.produit}}
+                            <tr data-id-produit="{{this.id_produit}}">
+                                <td><img src="{{this.chemin_image}}" alt="{{this.nom}}"></td>
+                                <td class="nom">{{this.nom}}</td>
+                                <td class="quantite">{{this.quantite}}</td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </li>
+        {{/each}}
+    </ul>
+</section>
+
+<script type="module" src="./js/commande.js"></script>

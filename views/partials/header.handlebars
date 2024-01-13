@@ -1,0 +1,44 @@
+<header>
+    <div class="wrapper">
+        <h1>Café Hiyoto</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Menu</a>
+                </li>
+                {{#if user}}
+                    <li>
+                        <a href="/panier">Panier</a>
+                    </li>
+                {{/if}}
+                {{#if user}}
+                <li>
+                    <a href="/commande">Commandes</a>
+                </li>
+                {{/if}}
+                {{#unless user}}
+                    <li>
+                        <a id="connexion-bouton" href="/connexion">Connexion</a>
+                    </li>
+                {{/unless}}
+                {{#unless user}}
+                    <li>
+                        <a id="inscription-bouton" href="/inscription">Inscription</a>
+                    </li>
+                {{/unless}}
+                {{#if user}}
+                    <li>
+                        <form action="/api/deconnexion" method="post">
+                            <input id="deconnexion-bouton" type="submit" value="Déconnexion">
+                        </form>
+                    </li>
+                {{/if}}
+                {{#if admin}}
+                    <li>
+                        <a href="/admin">Admin</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </nav>
+    </div>
+</header>

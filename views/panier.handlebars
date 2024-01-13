@@ -1,0 +1,34 @@
+<section>
+    <h2>Panier</h2>
+
+    <table class="panier">
+        <thead {{#if estVide}}class="hidden"{{/if}}>
+            <tr>
+                <th></th>
+                <th>Produit</th>
+                <th>Quantite</th>
+                <th>Prix</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each produit}}
+                <tr data-id-produit="{{this.id_produit}}">
+                    <td><img src="{{this.chemin_image}}" alt="{{this.nom}}"></td>
+                    <td class="nom">{{this.nom}}</td>
+                    <td class="quantite">{{this.quantite}}</td>
+                    <td class="prix">{{this.prix}} $</td>
+                    <td class="total">{{this.total}} $</td>
+                    <td><input type="button" value="&times;"></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <div class="panier-buttons">
+        <input type="button" value="Soumettre" id="soumettre" {{#if estVide}}disabled{{/if}}>
+        <input type="button" value="Annuler" id="vider" {{#if estVide}}disabled{{/if}}>
+    </div>
+</section>
+
+<script type="module" src="./js/panier.js"></script>
